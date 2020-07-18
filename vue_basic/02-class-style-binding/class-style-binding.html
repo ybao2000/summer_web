@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    .bg_pink {
+      background-color: pink;
+    }
+    .bg_lavender {
+      background-color: lavender;
+    }
+    .border {
+      border-style: solid;
+    }
+    .color {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+	<div id="app">
+    <button v-on:click="onClick()">switch background color</button>
+    <div class="bg_lavender">para in pink</div>
+    <div v-bind:class="isActive ? 'bg_pink' : 'bg_lavender'">dynanmic binding class: ternary</div>
+    <div v-bind:class="classObj">dynamic binding class: class object</div>
+    <div v-bind:class="classArr">dynamic binding class: class array</div>
+    <div>
+      {{ message }}
+    </div>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+        message: "nothing",
+        isActive: true,
+        classObj: {
+          border: true,
+          color: false
+        },
+        classArr: [
+          "border",
+          "bg_lavender"
+        ]
+			},
+      methods: {
+        onClick() {
+          // this.isActive = !this.isActive;
+          // this.classObj.border = !this.classObj.border
+          // this.classArr = [
+          //   "bg_pink",
+          //   "color"
+          // ]
+          this.message += "s"
+        }
+      }
+		})
+	</script>
+</body>
+</html>

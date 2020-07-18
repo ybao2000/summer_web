@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+    <button v-on:click="handleClick()">Click1</button>
+    <button @click="isShow = !isShow">Click 2</button>
+    <div v-show="isShow">show it</div>
+    <ul @click="handleULClick">
+      <li @click.stop="handleLIClick">1111</li>
+      <li>2222</li>
+      <li @click.stop="handleLIClick">3333</li>
+    </ul>
+    <a href="https://google.ca" @click.prevent="handleChangePage">Goto Google</a>
+    <input @keyup="handleKeyup" type="text">
+    <p> {{ text }} </p>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+        isShow: false,
+        text: ''
+			},
+      methods: {
+        handleClick() {
+          this.isShow = !this.isShow;
+        },
+        handleULClick() {
+          console.log("ul click");
+        },
+        handleLIClick() {
+          console.log("li click");
+        },
+        handleChangePage() {
+          console.log("change page")
+        },
+        handleKeyup() {
+          this.text = "you typed something"
+        }
+      }
+		})
+	</script>
+</body>
+</html>

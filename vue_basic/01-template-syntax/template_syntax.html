@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <title>Vue Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>    
+	</head>
+	<body>
+    <div id="app">
+      {{ text }} <!--moustache syntax-->
+      <br>
+      {{ 3 + 4 > 10 ? larger : smaller }}
+      <br>
+      message
+      <br>
+      <div>{{ my_html }}</div>
+      <hr>
+      <div v-html="my_html"></div>
+      <div v-show="isShow">shown depending on isShow</div>
+      <div v-if="isCreated">created depending on isCreated</div>
+      <div style="background: yellow">flalalalalalalal</div>
+    </div>
+    
+    <script>
+      var app = new Vue(
+      {
+        el: '#app',
+        data: {
+          text: 'This is my first Vue test',
+          secret: "I have a small secret",
+          smaller: "Smaller",
+          larger: "Larger", 
+          my_html: "<a href='https://google.ca'>Google</a>",
+          isShow: false,
+          isCreated: true
+        }
+      })      
+    </script>
+	</body>
+</html>

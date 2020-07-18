@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+    <button v-on:click="onClick()">Control Button</button>    
+    <div v-if="condition1">condition1 is true</div>
+    <div v-else-if="condition2">condition2 is true</div>
+    <div v-else>nothing true</div>
+    <hr>
+    <div v-if="which===1">
+      11111
+    </div>
+    <div v-else-if="which===2">
+      22222
+    </div>
+    <div v-else>
+      33333
+    </div>        
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+        condition1: false,
+        condition2: true,
+        which: 1
+			},
+      methods: {
+        onClick() {
+
+        }
+      }
+		})
+	</script>
+</body>
+</html>

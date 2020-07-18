@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <button v-on:click="onClick()">Control Button</button>   
+	<div id="app">
+    <ul>
+      <li v-for="item in items">
+        {{ item }}
+      </li>
+    </ul>
+    <ul>
+      <li v-for="item in obj">
+        {{ item }}  
+      </li>
+    </ul>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+        items:[
+        'apple', 'peach', 'banana'
+        ],
+        obj: {
+          name: "Bobby",
+          age: 10,
+          locaton: 'Calgary'
+        }
+			},
+      methods: {
+        onClick() {
+          consoe.log("I clicked")
+          this.items = ['apple', 'peach', 'banana'];
+        }
+      }
+		})
+	</script>
+</body>
+</html>
