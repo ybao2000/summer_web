@@ -10,10 +10,10 @@
     .bg_lavender {
       background-color: lavender;
     }
-    .border {
+    .solid_border {
       border-style: solid;
     }
-    .color {
+    .blue_color {
       color: blue;
     }
   </style>
@@ -36,12 +36,12 @@
 			data: {
         message: "nothing",
         isActive: true,
-        classObj: {
-          border: true,
-          color: false
+        classObj: {  // json -- javascript object notation
+          solid_border: true,
+          blue_color: false
         },
-        classArr: [
-          "border",
+        classArr: [   // the most powerful
+          "solid_border",
           "bg_lavender"
         ]
 			},

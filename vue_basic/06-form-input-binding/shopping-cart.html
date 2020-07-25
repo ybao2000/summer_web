@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+    <h1>Shopping Cart</h1>
+    <input type="checkbox" v-model="isAllChecked" @change="checkAll">Check All
+    <ul>
+      <li v-for="item in items">
+        <input type="checkbox" v-model="checkgroup" :value="item">
+        {{ item }}
+        <button @click="deleteItem">Delete</button>
+        <button @click="increaseQty">Increase</button>
+      </li>
+    </ul>
+    <br>
+    <h3>final items</h3>
+    {{ checkgroup }}
+    <p>Total Amount: </h1>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+        checkgroup: [],
+        isAllChecked: false,
+        items: [
+          {
+            name: "apple",
+            price: 1.45,
+            qty: 1,
+            id: "001"
+          },
+          {
+            name: "banana",
+            price: 0.76,
+            qty: 2,
+            id: "001"
+          },   
+          {
+            name: "peach",
+            price: 2.99,
+            qty: 3,
+            id: "001"
+          }                           
+        ]
+			},
+      methods: {
+        checkAll() {
+
+        },
+        deleteItem() {
+
+        },
+        increaseQty() {
+
+        }
+      }
+		})
+	</script>
+</body>
+</html>

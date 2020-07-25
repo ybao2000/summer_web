@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+</head>
+<body>
+	<div id="app">
+    <button @click="getItemsFromOutside()">Get the photos from outside</button>
+    <ul>
+      <li v-for="item in items">
+        <h3> {{ item.title }}</h3>
+        <img  width="200px" height="150px" :src="item.url">
+      </li>
+    </ul>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+        items: []
+			},
+      methods: {
+        getItemsFromOutside() {
+          axios.get("https://jsonplaceholder.typicode.com/photos")
+            .then(response => {
+              console.log(response.data);
+              this.items = response.data;
+            })
+        }
+      }
+		})
+	</script>
+</body>
+</html>
+

@@ -26,13 +26,22 @@
 		var app = new Vue({
 			el: '#app',
 			data: {
-        condition1: false,
-        condition2: true,
+        condition1: true,
+        condition2: false,
         which: 1
 			},
       methods: {
         onClick() {
-
+          if (this.condition1) {
+            this.condition1 = false;
+            this.condition2 = true;
+          } else if(this.condition2) {
+            this.condition2 = false;
+            this.condition1 = false;
+          } else{
+            this.condition1 = true;
+            this.condition2 = false;
+          }
         }
       }
 		})

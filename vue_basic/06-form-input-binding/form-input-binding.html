@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+    <input type="text" v-model="username" placeholder="username">    
+    <br>
+    <input type="password" v-model="password" placeholder="password">
+    <br>
+    <textarea v-model="mytext"></textarea>
+    <br>
+    <input type="checkbox" v-model="rememberMe">Remember Username
+    <br>
+    <p>
+      Your favorite sports
+      <input type="checkbox" v-model="sportsGroup" value="swimming">Swimming
+      <input type="checkbox" v-model="sportsGroup" value="skating">Skating
+      <input type="checkbox" v-model="sportsGroup" value="biking">Biking
+    </p>
+    <p>
+      Your most favarite programming language
+      <input type="radio" v-model="mostFavoriteLanguage" value="php">php
+      <input type="radio" v-model="mostFavoriteLanguage" value="java">java
+      <input type="radio" v-model="mostFavoriteLanguage" value="python">python
+      <input type="radio" v-model="mostFavoriteLanguage" value="javascript">javascript
+      <input type="radio" v-model="mostFavoriteLanguage" value="C#">C#
+      <input type="radio" v-model="mostFavoriteLanguage" value="ruby">ruby                              
+    </p>
+    <input type="button" value="submit" @click="onSubmit()">
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+        mytext: '',
+        username: '',
+        password: '',
+        rememberMe: true,
+        sportsGroup: [],
+        mostFavoriteLanguage: ''
+			},
+      methods: {
+        onSubmit() {
+          console.log("information submitted!")
+        }
+      }
+		})
+	</script>
+</body>
+</html>
