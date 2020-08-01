@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+    <navbar :myname="parentname" :myshow="parentshow"></navbar>
+    <navbar myname="parentname" :myshow="true"></navbar>
+	</div>
+
+	<script>
+    Vue.component("navbar", {
+      template: `<div>
+                    <button>Back</button>
+                    navbar -- {{ myname }}
+                    <button v-show="myshow">Homepage</button>
+                 </div>
+                 `,
+      props: {   // use props to control child from parent
+        myname: String,
+        myshow: Boolean
+      }
+    })
+		var app = new Vue({
+			el: '#app',
+			data: {
+        parentname: "Parent Name",
+        parentshow: true
+			}
+		})
+	</script>
+</body>
+</html>

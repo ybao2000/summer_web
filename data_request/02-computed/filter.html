@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+    filter: <input type="text" v-model="searchItem">
+    <ul>
+      <li v-for="item in filteredItems">
+        {{ item }}
+      </li>
+    </ul>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+        items: ["apple", "peach", "orange", "grape", "banana", "pear"],
+        searchItem: ''
+			},
+      computed: {
+        filteredItems() {
+          return this.items.filter(x => x.indexOf(this.searchItem) >= 0)
+        }
+      },
+		})
+	</script>
+</body>
+</html>

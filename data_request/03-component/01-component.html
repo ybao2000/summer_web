@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+    <navbar></navbar>
+    <sidebar></sidebar>
+	</div>
+
+	<script>
+    Vue.component("navbar", {
+      template:`
+                <div style="background:yellow">
+                  <button @click="handleBack()">Back</button>
+                  navbar
+                  <button>Homepage</button>
+                  <child></child>
+                </div>
+                `,
+      methods: {
+        handleBack() {
+          console.log("back")
+        }
+      }
+    });
+
+    Vue.component("sidebar", {
+      template:`
+                <div style="background:pink">sidebar component
+                <child></child>
+                </div>`,
+      methods: {
+
+      }
+    });    
+
+    Vue.component("child", {
+      template:`<div>
+                child component
+                <navbarchild></navbarchild>
+                </div>`,
+      methods: {
+
+      },
+      components: {   // private component, only available to child component
+        navbarchild: {
+          template:'<div>navbar child</div>',
+        }
+      }
+    });      
+		var app = new Vue({
+			el: '#app',
+			data: {
+			}
+		});
+
+	</script>
+</body>
+</html>

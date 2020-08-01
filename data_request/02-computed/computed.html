@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+    <p>display name (online expression): {{ myName.substring(0,1).toUpperCase() + myName.substring(1) }}</p>
+    <p>display name (method): {{ displayName() }}</p>
+    <p>display name (computed): {{ computedName }} </p>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+        myName: "frank",  // display name Frank
+        yourName: "beta"
+			},
+      computed: {
+        computedName() { // cost efficient compared with method, called only when its dependent is changed
+          return this.myName.substring(0,1).toUpperCase() + this.myName.substring(1);     
+        }
+      },
+      methods: {
+        displayName() {   // called everytime something is changed
+          return this.myName.substring(0,1).toUpperCase() + this.myName.substring(1);
+        }
+      }
+		})
+	</script>
+</body>
+</html>
