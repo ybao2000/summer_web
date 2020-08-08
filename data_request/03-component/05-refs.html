@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+    <input type="text" v-model="name" ref="mytext">
+    <button @click="handleClick">Changle Child Value</button>
+    <child ref="mychild"></child>
+	</div>
+
+	<script>
+    Vue.component("child", {
+      template: `
+                <div>
+                  child value: {{ childvalue }}
+                </div>
+                `,
+      data() {
+        return {
+          childvalue: "apple"
+        }
+      }
+    })
+		var app = new Vue({
+			el: '#app',
+			data: {
+        name: "peach"
+			},
+      methods: {
+        handleClick() {
+          this.$refs.mychild.childvalue = this.name;
+        }
+      }
+		})
+	</script>
+</body>
+</html>

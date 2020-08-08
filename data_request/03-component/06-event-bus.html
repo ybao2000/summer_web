@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+    <author></author>
+    <hr>
+    <reader></reader>
+	</div>
+
+	<script>
+    var bus = new Vue();
+
+    Vue.component("author", {
+      template: `
+                <div style="background: cyan">
+                  <h3>I am the author
+                  </h3>
+                  <input type="text" v-model="message">
+                  <button @click="publish_article">publish
+                  </button>
+                </div>
+                `,
+      data() {
+        return {
+          message: ''
+        }
+      },
+      methods: {
+        publish_article() {
+          bus.$emit("readerweek", this.message);
+        }
+      },
+    });
+
+    Vue.component("reader", {
+      template: `
+                <div style="background: yellow">
+                <h3>I am a reader
+                </h3>
+                {{ info }}                
+                `,
+      data() {
+        return {
+          info: ''
+        }
+      },
+      mounted() {
+        console.log("life cycle - after the current dom is created")
+        bus.$on("readerweek", (txt) => {
+          this.info = txt
+        })
+      }
+    })
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+			}
+		})
+	</script>
+</body>
+</html>

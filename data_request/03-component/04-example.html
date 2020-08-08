@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+    <navbar @myevent="handleNarbarClick"></navbar>
+    <sidebar :showul="parentshowul"></sidebar>
+	</div>
+
+	<script>
+    Vue.component("navbar", {
+      template: `
+                <div>
+                  navbar
+                  <button @click="handleClick()">toggle sidebar
+                  </button>
+                </div>
+                `,
+      methods: {
+        handleClick() {
+          this.$emit("myevent")
+        }
+      },  
+    });
+
+    Vue.component("sidebar", {
+      template: `
+                <div style="background: yellow; width: 200px">
+                sidebar
+                  <ul v-show="showul">
+                    <li>111</li>
+                    <li>222</li>
+                    <li>333</li>                                        
+                  </ul>
+                </div>
+                `,
+      props: {
+        showul: Boolean
+      }
+    });
+
+		var app = new Vue({
+			el: '#app',
+			data: {
+        parentshowul: false
+			},
+      methods: {
+        handleNarbarClick() {
+          this.parentshowul = !this.parentshowul;
+        }
+      }
+		})
+	</script>
+</body>
+</html>

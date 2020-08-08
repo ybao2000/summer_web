@@ -6,6 +6,7 @@
 </head>
 <body>
 	<div id="app">
+
     <navbar :myname="parentname" :myshow="parentshow"></navbar>
     <navbar myname="parentname" :myshow="true"></navbar>
 	</div>
@@ -22,12 +23,13 @@
         myname: String,
         myshow: Boolean
       }
-    })
+    });
+
 		var app = new Vue({
 			el: '#app',
 			data: {
         parentname: "Parent Name",
-        parentshow: true
+        parentshow: false
 			}
 		})
 	</script>
