@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import BlogList from '../views/BlogList.vue'
+import NewBlog from '../views/NewBlog.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/bloglist',
     name: 'BlogList',
     component: BlogList
+  },
+  {
+    path: '/newblog',
+    name: 'NewBlog',
+    component: NewBlog
   },
   {
     path: '/about',
