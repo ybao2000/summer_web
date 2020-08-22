@@ -25,12 +25,23 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import axios from 'axios'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   data () {
     return {
     }
+  },
+  mounted () {
+    axios.get('http://127.0.0.1:8000/blogs')
+      .then(response => {
+        console.log(response.data)
+        this.initBlogs(response.data)
+      })
+  },
+  methods: {
+    ...mapActions(['initBlogs'])
   },
   computed: mapGetters(['allBlogs'])
 }
