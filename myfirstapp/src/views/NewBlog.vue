@@ -46,7 +46,7 @@ export default {
         method: 'post',
         url: 'http://127.0.0.1:8000/addblog',
         data: formData,
-        headers: { 'Content-Type': 'multipart/form-data', 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS' }
+        headers: { 'Content-Type': 'multipart/form-data', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS' }
       }).then(res => {
         console.log(res)
         this.addBlog(this.blog) // this one is to tell the store to do the change
